@@ -124,7 +124,56 @@ void None(vector<Student *> &none,vector<Student *> student)
     }
 }
 
+    //只显示中奖号，隐藏用户信息
+void PrintfNO(vector<Student *> first,vector<Student *> second,vector<Student *> third,vector<Student *> none)
+{
 
+    string ss="awardNumber    get prizes    ";
+    string firsts(ss.size()+2,'-');
+    cout<<"中奖幸运户："<<endl<<endl;
+    cout<<"一等奖："<<endl;
+    cout<<firsts<<endl;
+    cout<<"*"<<ss<<"*"<<endl;
+    for(auto &l:first){
+        string awards(14-getLengths(l->getAnum()),' ');
+        string prizes(14-l->getAward().size(),' ');
+        cout<<"* "<<l->getAnum()<<awards<<l->getAward()<<prizes<<"*"<<endl;
+    }
+    cout<<firsts<<endl<<endl;
+
+
+
+    cout<<"二等奖："<<endl;
+    cout<<firsts<<endl;
+    cout<<"*"<<ss<<"*"<<endl;
+    for(auto &l:second){
+        string awards(14-getLengths(l->getAnum()),' ');
+        string prizes(14-l->getAward().size(),' ');
+        cout<<"* "<<l->getAnum()<<awards<<l->getAward()<<prizes<<"*"<<endl;
+    }
+    cout<<firsts<<endl<<endl;
+
+
+    cout<<"三等奖："<<endl;
+    cout<<firsts<<endl;
+    cout<<"*"<<ss<<"*"<<endl;
+    for(auto &l:third){
+        string awards(14-getLengths(l->getAnum()),' ');
+        string prizes(14-l->getAward().size(),' ');
+        cout<<"* "<<l->getAnum()<<awards<<l->getAward()<<prizes<<"*"<<endl;
+    }
+    cout<<firsts<<endl<<endl;
+
+    cout<<"未中奖者："<<endl;
+    cout<<firsts<<endl;
+    cout<<"*"<<ss<<"*"<<endl;
+    for(auto &l:none){
+        string awards(14-getLengths(l->getAnum()),' ');
+        string prizes(14-l->getAward().size(),' ');
+        cout<<"* "<<l->getAnum()<<awards<<l->getAward()<<prizes<<"*"<<endl;
+      }
+    cout<<firsts<<endl<<endl;
+}
 //按顺序输出中奖用户和未中奖用户
 void Printf(vector<Student *> first,vector<Student *> second,vector<Student *> third,vector<Student *> none)
 {

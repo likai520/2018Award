@@ -28,13 +28,14 @@ void None(vector<Student *> &none,vector<Student *> student);//未中奖
 void ResetSnum(vector<Student *> &student);//未中奖的人Snum置为0
 
 void Printf(vector<Student *> first,vector<Student *> second,vector<Student *> third,vector<Student *>  none);//输出中奖历史
-
+void PrintfNO(vector<Student *> first,vector<Student *> second,vector<Student *> third,vector<Student *> none);//隐藏用户信息输出中奖历史
 void SetAmount(int &a,int &b,int &c);//设置中奖名额
 
 void SetFirst(string &firsts);//各个奖品的设置
 void SetSecond(string &firsts);
 void SetThird(string &firsts);
-
+void reset(vector<Student *> &student);//重置
+void clear(vector<Student *> &student);//用户信息清空
 
 
 int main()
@@ -91,7 +92,8 @@ int main()
         case 2:
             cout<<"--参与人数："<<person<<endl;
             while (true) {
-                cout<<"--1.进行抽奖"<<endl
+                cout<<"--1.进行抽奖(可重置重新抽奖)"<<endl
+                    <<"--2.保存（保存之后无法再次重新抽奖)"<<endl
                     <<"--3.返回"<<endl;
                 cout<<"--选择：";
                 int i;
@@ -143,6 +145,12 @@ int main()
                 printf("----------萌----------新-----------限-----------定-----------分-----------割-----------线---------\n");
                 cout<<endl;
               }
+//            else if (is==2) {
+//               //未实现
+//              }
+//            else if (is==3) {
+//               //未实现
+//              }
             else if(is==4){
                 printf("----------萌----------新-----------限-----------定-----------分-----------割-----------线---------\n");
                 cout<<endl;
@@ -176,7 +184,22 @@ int main()
                    SetThird(taward);
                 }
                 else if (i==3) {
-
+                    cout<<endl;
+                   cout<<"--1.公开用户信息--"<<endl
+                       <<"--2.隐藏用户信息--"<<endl
+                       <<"--请设置：";
+                   int j;
+                   cin>>j;
+                   if(j==1)
+                       d=1;
+                   else if (j==2) {
+                      d=2;
+                   }
+                   else {
+                      cout<<"--输入有误，重新输入："<<endl;
+                   }
+                   if(d==1||d==2)
+                   cout<<"--设置成功--"<<endl<<endl;
 
                 }
 //                else if(i==4){
