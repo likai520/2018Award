@@ -124,6 +124,7 @@ void None(vector<Student *> &none,vector<Student *> student)
     }
 }
 
+
 //按顺序输出中奖用户和未中奖用户
 void Printf(vector<Student *> first,vector<Student *> second,vector<Student *> third,vector<Student *> none)
 {

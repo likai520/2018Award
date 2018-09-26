@@ -7,7 +7,8 @@ SOURCES += \
         main.cpp \
     student.cpp \
     cincout.cpp \
-    makeaward.cpp
+    makeaward.cpp \
+    setprize.cpp
 
 HEADERS += \
     student.h
