@@ -6,7 +6,8 @@ CONFIG -= qt
 SOURCES += \
         main.cpp \
     student.cpp \
-    cincout.cpp
+    cincout.cpp \
+    makeaward.cpp
 
 HEADERS += \
     student.h
