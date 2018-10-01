@@ -3,6 +3,7 @@
 #include"student.h"
 #include<vector>
 #include<string>
+#include <fstream>
 
 //李楷 软件工程 2016051604109
 using namespace std;
@@ -14,6 +15,7 @@ void cincout(int snum,vector<Student *> &student)
     Student *p;
     snum=1;//抽奖号第一位为1,随后递增
     int anum;
+    ofstream mycout("../data.txt");
     while (true) {
         string name;
         string sex;
@@ -34,6 +36,7 @@ void cincout(int snum,vector<Student *> &student)
 
         anum=snum;
         p=new Student(name,sex,num,classes,snum,anum,information,award);
+        mycout << name << ' ' << sex << ' ' << num << ' ' << classes << ' ' << information << endl;
         snum++;
         student.push_back(p);
 
@@ -42,15 +45,48 @@ void cincout(int snum,vector<Student *> &student)
         cin>>i;
         if(i==1)break;
     }
+    mycout.close();
+}
+void infile(int snum,vector<Student *> &student)
+{
+    Student *p;
+    snum=1;//抽奖号第一位为1,随后递增
+    int anum;
+    ifstream mycin;
+    string name;
+    string sex;
+    int num;//学号
+    int classes;//班级
+    string information;//专业信息
+    string award="thank you";//未抽奖前所有人的奖品设置为谢谢回顾
+    mycin.open("../data.txt");
+    if(!mycin) cout << "error" << endl;
+    while (mycin) {
+        mycin>>name>>sex>>num>>classes>>information;
+        anum=snum;
+        p=new Student(name,sex,num,classes,snum,anum,information,award);
+        snum++;
+        student.push_back(p);
+    }
 }
 //输出信息
 void informations(vector<Student *> &student,int &per)
 {
 
     int snum=0;
+    int i=0;
     per=0;//计算人数
 
-    cincout(snum,student);
+    cout << "Please enter 1(文件输入) or 2(手动输入)" << endl;
+    cin >> i;
+    if(i == 1)
+        infile(snum,student);
+    else if(i == 2)
+        cincout(snum,student);
+    else{
+        cout << "ERROR:Please enter again." << endl;
+        return;
+    }
 
     //                    14      7        10        10        10         11
     string ss="name          sex    class     num       major     awardNumber";
