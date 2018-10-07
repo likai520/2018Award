@@ -4,6 +4,18 @@
 #include<vector>
 #include<string>
 #include<random>
+#include "dialog.h"
+#include <QApplication>
+
+//int main(int argc, char *argv[])
+//{
+//    QApplication a(argc, argv);
+//    Dialog w;
+//    w.show();
+
+//    return a.exec();
+//}
+
 
 int person;//参与人数
 
@@ -38,9 +50,13 @@ void reset(vector<Student *> &student);//重置
 void clear(vector<Student *> &student);//用户信息清空
 
 
-int main()
+int main(int argc, char *argv[])
 {
+    QApplication app(argc, argv);
+    Dialog w;
+    w.show();
 
+    return app.exec();
 
     vector<Student *> student;//参与者信息保存
     vector<Student *> first;//一等奖抽取
