@@ -15,7 +15,8 @@ void cincout(int snum,vector<Student *> &student)
     Student *p;
     snum=1;//抽奖号第一位为1,随后递增
     int anum;
-    ofstream mycout("../data.txt");
+    ofstream mycout;
+    mycout.open("../2018Award/data.txt");
     while (true) {
         string name;
         string sex;
@@ -59,14 +60,16 @@ void infile(int snum,vector<Student *> &student)
     int classes;//班级
     string information;//专业信息
     string award="thank you";//未抽奖前所有人的奖品设置为谢谢回顾
-    mycin.open("../data.txt");
+    mycin.open("../2018Award/data.txt");
     if(!mycin) cout << "error" << endl;
     while (mycin) {
         mycin>>name>>sex>>num>>classes>>information;
-        anum=snum;
-        p=new Student(name,sex,num,classes,snum,anum,information,award);
-        snum++;
-        student.push_back(p);
+        if(mycin){
+            anum=snum;
+            p=new Student(name,sex,num,classes,snum,anum,information,award);
+            snum++;
+            student.push_back(p);
+        }
     }
 }
 //输出信息
@@ -106,11 +109,11 @@ void informations(vector<Student *> &student,int &per)
 
         cout<<"| "<<l->name()<<names
            <<l->getSex()<<sexs
-           <<l->getClass()<<classes
-           <<l->getNum()<<nums
-           <<l->getInformation()<<majorss
-           <<l->getSnum()<<awards
-           <<"|"<<endl;
+          <<l->getClass()<<classes
+         <<l->getNum()<<nums
+        <<l->getInformation()<<majorss
+        <<l->getSnum()<<awards
+        <<"|"<<endl;
     }
     cout<<firsts<<endl<<endl;
 }
