@@ -27,7 +27,7 @@ void ThirdA(vector<Student *> &third,vector<Student *> student,string taward);
 void None(vector<Student *> &none,vector<Student *> student);//未中奖
 void ResetSnum(vector<Student *> &student);//未中奖的人Snum置为0
 
-void Printf(vector<Student *> first,vector<Student *> second,vector<Student *> third,vector<Student *>  none);//输出中奖历史
+void zPrintf(vector<Student *> first,vector<Student *> second,vector<Student *> third,vector<Student *>  none);//输出中奖历史
 void PrintfNO(vector<Student *> first,vector<Student *> second,vector<Student *> third,vector<Student *> none);//隐藏用户信息输出中奖历史
 void SetAmount(int &a,int &b,int &c);//设置中奖名额
 
@@ -139,7 +139,7 @@ int main()
             if(is==1){
                 cout<<"--历史中奖用户和参与用户--"<<endl;
                 if(d==1)
-                    Printf(first,second,third,none);
+                    zPrintf(first,second,third,none);
                 if(d==2)
                     PrintfNO(first,second,third,none);
                 printf("----------萌----------新-----------限-----------定-----------分-----------割-----------线---------\n");

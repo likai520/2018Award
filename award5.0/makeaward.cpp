@@ -175,7 +175,7 @@ void PrintfNO(vector<Student *> first,vector<Student *> second,vector<Student *>
     cout<<firsts<<endl<<endl;
 }
 //按顺序输出中奖用户和未中奖用户
-void Printf(vector<Student *> first,vector<Student *> second,vector<Student *> third,vector<Student *> none)
+void zPrintf(vector<Student *> first,vector<Student *> second,vector<Student *> third,vector<Student *> none)
 {
 
     //                    14       7       10        10        10              15             14
