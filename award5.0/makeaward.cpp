@@ -19,7 +19,26 @@ void First(vector<Student *> student,int person,int a,string faward)
     for(auto &l:student){
         if(l->getSnum()==random){
             i++;
-            cout<<"恭喜--"<<l->name()<<"--的用户得到一等奖--"<<faward<<"--的大礼包"<<endl;
+            cout << "选择输出格式："
+                 << "1.按学号显示"
+                 << "2.按姓名显示"
+                 << "3.按抽奖号显示"
+                 <<endl;
+            int choose;
+            cin >> choose;
+            switch (choose) {
+            case 1:
+                cout<<"恭喜学号为--"<<l->getNum()<<"--的用户得到一等奖--"<<faward<<"--的大礼包"<<endl;
+                break;
+            case 2:
+                cout<<"恭喜姓名为--"<<l->name()<<"--的用户得到一等奖--"<<faward<<"--的大礼包"<<endl;
+                break;
+            case 3:
+                cout<<"恭喜抽奖号为--"<<l->getSnum()<<"--的用户得到一等奖--"<<faward<<"--的大礼包"<<endl;
+                break;
+            default:
+                break;
+            }
             l->setSnum(-1);
         }
     }
@@ -52,7 +71,26 @@ void Second(vector<Student *> student,int person,int b,string saward)
         for(auto &l:student){
             if(l->getSnum()==random){
                 i++;
-                cout<<"恭喜--"<<l->name()<<"--的用户得到二等奖--"<<saward<<"--的大礼包"<<endl;
+                cout << "选择输出格式："
+                     << "1.按学号显示"
+                     << "2.按姓名显示"
+                     << "3.按抽奖号显示"
+                     <<endl;
+                int choose;
+                cin >> choose;
+                switch (choose) {
+                case 1:
+                    cout<<"恭喜学号为--"<<l->getNum()<<"--的用户得到二等奖--"<<saward<<"--的大礼包"<<endl;
+                    break;
+                case 2:
+                    cout<<"恭喜姓名为--"<<l->name()<<"--的用户得到二等奖--"<<saward<<"--的大礼包"<<endl;
+                    break;
+                case 3:
+                    cout<<"恭喜抽奖号为--"<<l->getSnum()<<"--的用户得到二等奖--"<<saward<<"--的大礼包"<<endl;
+                    break;
+                default:
+                    break;
+                }
                 l->setSnum(-2);
 
             }
@@ -83,7 +121,26 @@ void Third(vector<Student *> student,int person,int c,string taward)
         for(auto &l:student){
             if(l->getSnum()==random){
                 i++;
-                cout<<"恭喜--"<<l->name()<<"--的用户得到三等奖--"<<taward<<"--的大礼包"<<endl;
+                cout << "选择获奖者输出格式："
+                     << "1.按学号显示"
+                     << "2.按姓名显示"
+                     << "3.按抽奖号显示"
+                     <<endl;
+                int choose;
+                cin >> choose;
+                switch (choose) {
+                case 1:
+                    cout<<"恭喜学号为--"<<l->getNum()<<"--的用户得到三等奖--"<<taward<<"--的大礼包"<<endl;
+                    break;
+                case 2:
+                    cout<<"恭喜姓名为--"<<l->name()<<"--的用户得到三等奖--"<<taward<<"--的大礼包"<<endl;
+                    break;
+                case 3:
+                    cout<<"恭喜抽奖号为--"<<l->getSnum()<<"--的用户得到三等奖--"<<taward<<"--的大礼包"<<endl;
+                    break;
+                default:
+                    break;
+                }
                 l->setSnum(-3);
 
             }
@@ -175,7 +232,7 @@ void PrintfNO(vector<Student *> first,vector<Student *> second,vector<Student *>
     cout<<firsts<<endl<<endl;
 }
 //按顺序输出中奖用户和未中奖用户
-void zPrintf(vector<Student *> first,vector<Student *> second,vector<Student *> third,vector<Student *> none)
+void Printf(vector<Student *> first,vector<Student *> second,vector<Student *> third,vector<Student *> none)
 {
 
     //                    14       7       10        10        10              15             14
