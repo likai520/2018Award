@@ -3,6 +3,7 @@
 
 //李楷 软件工程 2016051604109
 #include<string>
+#include<iostream>
 
 //保存客户信息
 
@@ -24,6 +25,8 @@ public:
 
     std::string getAward() const;
     void setAward(const std::string &award);
+
+    void printinformation();
 
 private:
     std::string m_name;//名字

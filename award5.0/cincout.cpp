@@ -15,8 +15,7 @@ void cincout(int snum,vector<Student *> &student)
     Student *p;
     snum=1;//抽奖号第一位为1,随后递增
     int anum;
-    ofstream mycout;
-    mycout.open("../2018Award/data.txt");
+    ofstream mycout("../2018Award/data.txt",ios::app);
     while (true) {
         string name;
         string sex;

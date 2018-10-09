@@ -57,3 +57,8 @@ void Student::setAward(const std::string &award)
 {
     m_award = award;
 }
+
+void Student::printinformation()
+{
+    std::cout<<"name:"<<m_name<<"\nsex:"<<m_sex<<"\nclass:"<<m_class<<"\nnum:"<<m_num<<"\nmajor:"<<m_information<<"\nget prize:"<<m_award<<std::endl;
+}
