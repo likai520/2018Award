@@ -1,7 +1,10 @@
-HanMeiMei    1              10206     2    1              
-John         2              10207     2    1             
-Linda        1              10208     3    2             
-Kelly        1              10209     3    3           
-Alice        1              10210     2    2       
-Taylor       2              10211     2    3    
+HanMeiMei    girl              10206     2016     数学              
+John         boy               10207     2016     数学             
+Linda        girl              10208     2017     文学             
+Kelly        girl              10209     2017     文学          
+Alice        girl              10210     2016     数学       
+Taylor       boy               10211     2018     历史    
+Piter        boy               10212     2018     历史
+Lucy         girl              10213     2016     数学
+Juliy        girl              10214     2017     地理
 

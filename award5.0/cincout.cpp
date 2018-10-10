@@ -6,6 +6,7 @@
 #include <fstream>
 
 //李楷 软件工程 2016051604109
+//张黎明
 using namespace std;
 
 //输入信息
@@ -15,7 +16,7 @@ void cincout(int snum,vector<Student *> &student)
     Student *p;
     snum=1;//抽奖号第一位为1,随后递增
     int anum;
-    ofstream mycout("../2018Award/data.txt",ios::app);
+    ofstream mycout("../data.txt",ios::app);
     while (true) {
         string name;
         string sex;
@@ -41,14 +42,15 @@ void cincout(int snum,vector<Student *> &student)
         student.push_back(p);
 
         int i;
-        cout<<"结束输入按 1,继续按任意键"<<endl;
+        cout<<"结束输入按 0,继续按任意键"<<endl;
         cin>>i;
-        if(i==1)break;
+        if(i==0)break;
     }
     mycout.close();
 }
 void infile(int snum,vector<Student *> &student)
 {
+
     Student *p;
     snum=1;//抽奖号第一位为1,随后递增
     int anum;
@@ -59,7 +61,7 @@ void infile(int snum,vector<Student *> &student)
     int classes;//班级
     string information;//专业信息
     string award="thank you";//未抽奖前所有人的奖品设置为谢谢回顾
-    mycin.open("../2018Award/data.txt");
+    mycin.open("../data.txt");
     if(!mycin) cout << "error" << endl;
     while (mycin) {
         mycin>>name>>sex>>num>>classes>>information;
@@ -98,12 +100,13 @@ void informations(vector<Student *> &student,int &per)
     cout<<"|"<<ss<<"|"<<endl;
     //输出所有用户信息
     for(auto &l:student){
+        if(l->getSnum()>0){
         per++;
         string names(13-l->name().size(),' ');
         string sexs(7-l->getSex().size(),' ');
         string classes(10-getLength(l->getClass()),' ');
         string nums(10-getLength(l->getNum()),' ');
-        string majorss(10-l->getInformation().size(),' ');
+        string majorss(12-l->getInformation().size(),' ');
         string awards(11-getLength(l->getSnum()),' ');
 
         cout<<"| "<<l->name()<<names
@@ -113,6 +116,7 @@ void informations(vector<Student *> &student,int &per)
         <<l->getInformation()<<majorss
         <<l->getSnum()<<awards
         <<"|"<<endl;
+    }
     }
     cout<<firsts<<endl<<endl;
 }

@@ -30,16 +30,6 @@ void First(vector<Student *> student,int person,int a,string faward,vector<Stude
 
 }
 
-//void FirstA(vector<Student *> &first,vector<Student *> student,string faward)
-//{
-//    for(auto &l:student){
-//        if(l->getSnum()==-1){
-
-//            first.push_back(l);
-//            l->setAward(faward);
-//        }
-//    }
-//}
 
 
 //抽二等奖的幸运户
@@ -63,17 +53,6 @@ void Second(vector<Student *> student,int person,int b,string saward,vector<Stud
     cout<<"抽二等奖的幸运户完成...."<<endl<<endl;
 }
 
-//void SecondA(vector<Student *> &second,vector<Student *> student,string saward)
-//{
-//    for(auto &l:student){
-//        if(l->getSnum()==-2){
-
-//            second.push_back(l);
-//            l->setAward(saward);
-
-//        }
-//    }
-//}
 
 //抽三等奖的幸运户
 void Third(vector<Student *> student,int person,int c,string taward,vector<Student *> &third)
@@ -95,17 +74,6 @@ void Third(vector<Student *> student,int person,int c,string taward,vector<Stude
     cout<<"抽三等奖的幸运户完成...."<<endl<<endl;
 }
 
-//void ThirdA(vector<Student *> &third,vector<Student *> student,string taward)
-//{
-//    for(auto &l:student){
-//        if(l->getSnum()==-3){
-
-//            third.push_back(l);
-//            l->setAward(taward);
-
-//        }
-//    }
-//}
 
 
 //未中奖的人的抽奖号重置为0
@@ -118,17 +86,9 @@ void ResetSnum(vector<Student *>&student)
     }
 }
 
-void None(vector<Student *> &none,vector<Student *> student)
-{
-    for(auto &l:student){
-        if(l->getSnum()==0){
-            none.push_back(l);
-        }
-    }
-}
 
     //只显示中奖号，隐藏用户信息
-void PrintfNO(vector<Student *> first,vector<Student *> second,vector<Student *> third,vector<Student *> none)
+void PrintfNO(vector<Student *> first,vector<Student *> second,vector<Student *> third,vector<Student *> student)
 {
 
     string ss="awardNumber    get prizes    ";
@@ -138,9 +98,11 @@ void PrintfNO(vector<Student *> first,vector<Student *> second,vector<Student *>
     cout<<firsts<<endl;
     cout<<"*"<<ss<<"*"<<endl;
     for(auto &l:first){
+        if(l->getSnum()==-1){
         string awards(14-getLengths(l->getAnum()),' ');
         string prizes(14-l->getAward().size(),' ');
         cout<<"* "<<l->getAnum()<<awards<<l->getAward()<<prizes<<"*"<<endl;
+    }
     }
     cout<<firsts<<endl<<endl;
 
@@ -150,9 +112,11 @@ void PrintfNO(vector<Student *> first,vector<Student *> second,vector<Student *>
     cout<<firsts<<endl;
     cout<<"*"<<ss<<"*"<<endl;
     for(auto &l:second){
+        if(l->getSnum()==-2){
         string awards(14-getLengths(l->getAnum()),' ');
         string prizes(14-l->getAward().size(),' ');
         cout<<"* "<<l->getAnum()<<awards<<l->getAward()<<prizes<<"*"<<endl;
+    }
     }
     cout<<firsts<<endl<<endl;
 
@@ -161,16 +125,18 @@ void PrintfNO(vector<Student *> first,vector<Student *> second,vector<Student *>
     cout<<firsts<<endl;
     cout<<"*"<<ss<<"*"<<endl;
     for(auto &l:third){
+        if(l->getSnum()==-3){
         string awards(14-getLengths(l->getAnum()),' ');
         string prizes(14-l->getAward().size(),' ');
         cout<<"* "<<l->getAnum()<<awards<<l->getAward()<<prizes<<"*"<<endl;
+    }
     }
     cout<<firsts<<endl<<endl;
 
     cout<<"未中奖者："<<endl;
     cout<<firsts<<endl;
     cout<<"*"<<ss<<"*"<<endl;
-    for(auto &l:none){
+    for(auto &l:student){
         string awards(14-getLengths(l->getAnum()),' ');
         string prizes(14-l->getAward().size(),' ');
         cout<<"* "<<l->getAnum()<<awards<<l->getAward()<<prizes<<"*"<<endl;
@@ -178,7 +144,7 @@ void PrintfNO(vector<Student *> first,vector<Student *> second,vector<Student *>
     cout<<firsts<<endl<<endl;
 }
 //按顺序输出中奖用户和未中奖用户
-void Printf(vector<Student *> first,vector<Student *> second,vector<Student *> third,vector<Student *> none)
+void Printf(vector<Student *> first,vector<Student *> second,vector<Student *> third,vector<Student *> student)
 {
 
     //                    14       7       10        10        10              15             14
@@ -189,11 +155,12 @@ void Printf(vector<Student *> first,vector<Student *> second,vector<Student *> t
            cout<<firsts<<endl;
            cout<<"-"<<ss<<"-"<<endl;
     for(auto &l:first){
+        if(l->getSnum()==-1){
         string names(13-l->name().size(),' ');
         string sexs(7-l->getSex().size(),' ');
         string classes(10-getLengths(l->getClass()),' ');
         string nums(10-getLengths(l->getNum()),' ');
-        string majorss(10-l->getInformation().size(),' ');
+        string majorss(12-l->getInformation().size(),' ');
         string awards(15-getLengths(l->getAnum()),' ');
         string prizes(14-l->getAward().size(),' ');
         cout<<"- "<<l->name()<<names
@@ -204,6 +171,7 @@ void Printf(vector<Student *> first,vector<Student *> second,vector<Student *> t
            <<l->getAnum()<<awards
            <<l->getAward()<<prizes
            <<"-"<<endl;
+    }
     }
     cout<<firsts<<endl<<endl;
 
@@ -213,11 +181,12 @@ void Printf(vector<Student *> first,vector<Student *> second,vector<Student *> t
     cout<<firsts<<endl;
     cout<<"-"<<ss<<"-"<<endl;
     for(auto &l:second){
+        if(l->getSnum()==-2){
         string names(13-l->name().size(),' ');
         string sexs(7-l->getSex().size(),' ');
         string classes(10-getLengths(l->getClass()),' ');
         string nums(10-getLengths(l->getNum()),' ');
-        string majorss(10-l->getInformation().size(),' ');
+        string majorss(12-l->getInformation().size(),' ');
         string awards(15-getLengths(l->getAnum()),' ');
         string prizes(14-l->getAward().size(),' ');
         cout<<"- "<<l->name()<<names
@@ -228,6 +197,7 @@ void Printf(vector<Student *> first,vector<Student *> second,vector<Student *> t
            <<l->getAnum()<<awards
            <<l->getAward()<<prizes
            <<"-"<<endl;
+    }
     }
     cout<<firsts<<endl<<endl;
 
@@ -236,11 +206,12 @@ void Printf(vector<Student *> first,vector<Student *> second,vector<Student *> t
     cout<<firsts<<endl;
     cout<<"-"<<ss<<"-"<<endl;
     for(auto &l:third){
+        if(l->getSnum()==-3){
         string names(13-l->name().size(),' ');
         string sexs(7-l->getSex().size(),' ');
         string classes(10-getLengths(l->getClass()),' ');
         string nums(10-getLengths(l->getNum()),' ');
-        string majorss(10-l->getInformation().size(),' ');
+        string majorss(12-l->getInformation().size(),' ');
         string awards(15-getLengths(l->getAnum()),' ');
         string prizes(14-l->getAward().size(),' ');
         cout<<"- "<<l->name()<<names
@@ -252,18 +223,20 @@ void Printf(vector<Student *> first,vector<Student *> second,vector<Student *> t
            <<l->getAward()<<prizes
            <<"-"<<endl;
     }
+    }
     cout<<firsts<<endl<<endl;
 
     cout<<"未中奖者："<<endl;
 
     cout<<firsts<<endl;
     cout<<"*"<<ss<<"*"<<endl;
-    for(auto &l:none){
+    for(auto &l:student){
+        if(l->getSnum()==0){
         string names(13-l->name().size(),' ');
         string sexs(7-l->getSex().size(),' ');
         string classes(10-getLengths(l->getClass()),' ');
         string nums(10-getLengths(l->getNum()),' ');
-        string majorss(10-l->getInformation().size(),' ');
+        string majorss(12-l->getInformation().size(),' ');
         string awards(15-getLengths(l->getAnum()),' ');
         string prizes(14-l->getAward().size(),' ');
 
@@ -275,6 +248,7 @@ void Printf(vector<Student *> first,vector<Student *> second,vector<Student *> t
            <<l->getAnum()<<awards
            <<l->getAward()<<prizes
            <<"*"<<endl;
+        }
     }
     cout<<firsts<<endl<<endl;
 

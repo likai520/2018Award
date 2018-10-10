@@ -5,7 +5,7 @@
 #include<string>
 #include<random>
 
-//李楷 软件工程 2016051604109
+//汪惠玲
 using namespace std;
 
 //抽奖名额设置
